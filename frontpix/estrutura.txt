@@ -1,0 +1,37 @@
+Estrutura do Site
+
+Landing Page:
+
+    Título e descrição clara sobre o serviço.
+    Chamadas para ação (ex: "Iniciar consulta").
+    Provas sociais (testemunhos).
+    Destaque para pacotes de consultoria (Básico, Premium, Completo).
+
+Pagamento via Pix (Mercado Pago):
+
+    Usuário escolhe o pacote e paga via Pix.
+    Após pagamento, confirma a compra e agende a consulta.
+
+Chatbot (ChatGPT):
+
+    Auxilia com perguntas frequentes.
+    Recomenda o pacote adequado.
+    Coleta informações sobre a situação financeira do cliente.
+
+Fluxo do Usuário
+
+    Página Inicial: Apresentação do serviço e chamada para ação ("Iniciar consulta").
+    Escolha de Pacote: Usuário escolhe entre os pacotes (ex: Básico, Premium, Completo).
+    Pagamento via Pix: Confirmação do pagamento e redirecionamento para agendamento.
+    Agendamento de Consulta: Cliente escolhe horário para a consulta.
+    Consultoria: Consultor oferece conselhos financeiros personalizados.
+    Pós-Consultoria: Resumo com recomendações e plano de ação.
+
+
+
+Cores : 
+
+#0F0F0F
+#F6AE2D
+#418B9D
+#F1F1F1
