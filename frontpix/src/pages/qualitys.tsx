@@ -1,18 +1,16 @@
 import cracha from "./../assets/cracha.png";
 import acordo from "./../assets/acordo.png";
 import grafico from "./../assets/grafico.png";
+import lock from "./../assets/cadeado.png";
+import book from "./../assets/livro.png";
 function Quality() {
   return (
     <div className="intersection">
       <div className="qualitys">
-        <h1>O que torna a Expert Investimentos diferente? </h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit non saepe
-          provident mollitia fugit porro odio.
-          <br />
-          In repellendus non saepe provident mollitia fugit porro odio
-        </p>
-
+        <h1>
+          Expert Investimentos: seu <strong>dinheiro</strong> trabalhando por
+          você, com <strong>segurança</strong> e <strong>estratégia</strong>
+        </h1>
         <div className="qualitys-sec">
           <div className="quality-unique">
             <img src={cracha}></img>
@@ -34,10 +32,18 @@ function Quality() {
           </div>
           <div className="quality-unique">
             <img src={acordo}></img>
-            <h2>Suporte rápido e humanizado</h2>
+            <h2>Suporte ágil e humanizado</h2>
             <p>
               Possuimos um suporte 24h que está disposto a te atender.
               Atendimento humanizado e instantâneo para tirar qualquer dúvida
+            </p>
+          </div>
+          <div className="quality-unique">
+            <img src={lock}></img>
+            <h2>Segurança como prioridade</h2>
+            <p>
+              Garantimos máxima segurança para os seus investimentos, com
+              tecnologias avançadas e total sigilo de informações.
             </p>
           </div>
         </div>
