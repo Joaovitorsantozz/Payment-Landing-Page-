@@ -35,3 +35,22 @@ Cores :
 #F6AE2D
 #418B9D
 #F1F1F1
+#86B064
+
+1. Home (Página Inicial)
+    Banner chamativo com chamada para ação (Ex: "Invista com confiança, cresça com segurança")
+    Destaque para os principais serviços e diferenciais
+    Depoimentos ou estatísticas de credibilidade
+2. Quem Somos
+    Texto curto sobre a missão da empresa (baseado no que já escrevemos)
+    Equipe ou valores da empresa (opcional)
+3. Serviços
+    Explicação rápida dos serviços oferecidos (consultoria, gestão de investimentos, educação financeira, etc.)
+    Chamadas para ação ("Fale com um especialista")
+4. Conteúdos e Educação Financeira (Blog ou Guias)
+    Artigos, vídeos ou materiais sobre investimentos para engajar visitantes
+    Possibilidade de captar leads (ex: ebooks gratuitos em troca de e-mail)
+5. Contato
+    Formulário simples para consultas
+    Telefone, e-mail e redes sociais
+    Mapa ou endereço (caso tenha atendimento presencial)

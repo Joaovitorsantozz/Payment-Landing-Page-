@@ -1,18 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home.tsx";
-import Consultoria from "./pages/consultoria.tsx"
-function App() {
- 
-
+import Consultoria from "./pages/consultoria.tsx";
+const App: React.FC = () => {
   return (
-    <Router> 
+    <Router>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/consultoria" element={<Consultoria/>}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/consultoria" element={<Consultoria />}></Route>
       </Routes>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
