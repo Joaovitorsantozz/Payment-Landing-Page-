@@ -13,7 +13,7 @@ function Navbar() {
 
       <div className="cta">
         <a>
-          <img src={login} width={35}></img>Fazer Login
+          <img src={login} width={25}></img>Fazer Login
         </a>
       </div>
     </nav>
