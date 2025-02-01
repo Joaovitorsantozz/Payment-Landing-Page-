@@ -1,4 +1,5 @@
 import login from "./../assets/login.png";
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav>
@@ -12,9 +13,9 @@ function Navbar() {
       </ul>
 
       <div className="cta">
-        <a>
+        <Link to="/login">
           <img src={login} width={25}></img>Fazer Login
-        </a>
+        </Link>
       </div>
     </nav>
   );
