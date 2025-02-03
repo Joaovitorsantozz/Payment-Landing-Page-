@@ -1,14 +1,14 @@
-import express from 'express';
+import express, { Request, Response } from "express";
+import { router } from "./router";
 
-
-const app=express();
+const app = express();
+const cors = require("cors");
+app.use(cors());
 app.use(express.json());
+app.use(router);
+
 const PORT = 3000;
 
-app.get("/rota",(req,res)=>{
-  res.send("Voce esta acessando a rota /rota");
-})
-
-app.listen(PORT,()=>{
-    console.log('Server rodando na porta 3000');
-})
+app.listen(PORT, () => {
+  console.log(`rodando na porta ${PORT}`);
+});

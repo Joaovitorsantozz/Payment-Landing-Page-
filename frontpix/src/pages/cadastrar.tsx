@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faEnvelope,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import Axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 function Cadastrar() {
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
@@ -12,37 +19,90 @@ function Cadastrar() {
     email: string;
     senha: string;
   }
-  const handlerCadastro = (values: FormValues) => {};
+  const handlerCadastro = (values: FormValues) => {
+    Axios.post("http://localhost:3000/register", {
+      name: values.name,
+      email: values.email,
+      senha: values.senha,
+    })
+      .then((response) => {
+        if (response.data.msg == "Cadastrado com sucesso") {
+          alert(response);
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.error(
+            "Erro ao cadastrar usuário:",
+            error.response.data.message
+          );
+        } else {
+          console.error("Erro na requisição:", error.message);
+        }
+      });
+  };
 
-  const validateCadastro = () => {};
+  const validateCadastro = Yup.object().shape({
+    name: Yup.string().required("Insira um nome válido"),
+    email: Yup.string().email().required("Este não é um email válido"),
+    senha: Yup.string()
+      .min(8)
+      .required("A senha deve conter mais de 8 caracteres"),
+    confirmarSenha: Yup.string().oneOf(
+      [Yup.ref("senha")],
+      "As senhas devem ser iguais"
+    ),
+  });
   return (
     <div className="cadastro-container">
       <div className="cadastro-box">
         <h2>Sign Up</h2>
         <Formik
-          initialValues={{ name: "", email: "", senha: "", confirmarsenha: "" }}
+          initialValues={{ name: "", email: "", senha: "", confirmarSenha: "" }}
           onSubmit={handlerCadastro}
           validationSchema={validateCadastro}
         >
           <Form>
             <div className="cadastro-sec">
               <label>Nome do usuário</label>
-              <Field
-                className="form-field"
-                name="username"
-                type="text"
-                placeholder="Nome"
-              ></Field>
+              <div className="input-container">
+                <Field
+                  className="form-field"
+                  name="name"
+                  type="text"
+                  placeholder="Nome"
+                ></Field>
+                <ErrorMessage
+                  component="span"
+                  name="name"
+                  className="form-error"
+                />
+                <button type="button">
+                  <FontAwesomeIcon icon={faUser} />
+                </button>
+              </div>
             </div>
+
             <div className="cadastro-sec">
               <label>Email do usuário</label>
-              <Field
-                className="form-field"
-                name="email"
-                type="text"
-                placeholder="Email : genericemail@gmail.com"
-              ></Field>
+              <div className="input-container">
+                <Field
+                  className="form-field"
+                  name="email"
+                  type="text"
+                  placeholder="Email"
+                ></Field>
+                <ErrorMessage
+                  component="span"
+                  name="email"
+                  className="form-error"
+                />
+                <button type="button">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </button>
+              </div>
             </div>
+
             <div className="cadastro-sec">
               <label>Crie uma senha</label>
               <div className="input-container">
@@ -52,7 +112,11 @@ function Cadastrar() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Senha"
                 ></Field>
-
+                <ErrorMessage
+                  component="span"
+                  name="senha"
+                  className="form-error"
+                />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -69,11 +133,15 @@ function Cadastrar() {
               <label>Repita a senha</label>
               <div className="input-container">
                 <Field
-                  name="confirmar-senha"
+                  name="confirmarSenha"
                   type={confirmPassword ? "text" : "password"}
                   placeholder="Repita a senha"
                 ></Field>
-
+                <ErrorMessage
+                  component="span"
+                  name="confirmarSenha"
+                  className="form-error"
+                />
                 <button
                   type="button"
                   onClick={() => setConfirmPassword(!confirmPassword)}
@@ -84,10 +152,13 @@ function Cadastrar() {
                   ></FontAwesomeIcon>
                 </button>
               </div>
+
+              <button className="form-submit" type="submit">
+                Cadastre-se agora
+              </button>
             </div>
           </Form>
         </Formik>
-        <Link to="/Login"> Sign in</Link>
       </div>
       <div className="cadastro-welcome">
         <h2>Seja bem vindo!</h2>
