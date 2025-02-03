@@ -25,13 +25,12 @@ function Cadastrar() {
       email: values.email,
       senha: values.senha,
     })
-      .then((response) => {
-        if (response.data.msg == "Cadastrado com sucesso") {
-          alert(response);
-        }
+      .then(() => {
+        alert("Seu usuário foi cadastrado");
       })
       .catch((error) => {
         if (error.response) {
+          alert("Erro ao cadastrar usuário");
           console.error(
             "Erro ao cadastrar usuário:",
             error.response.data.message

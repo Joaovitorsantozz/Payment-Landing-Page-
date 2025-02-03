@@ -3,12 +3,12 @@ export interface User extends RowDataPacket {
   id: number;
   name: string;
   email: string;
-  password: string;
+  senha: string;
 }
 
 export interface NewUser {
   id: number;
   name: string;
   email: string;
-  password: string;
+  senha: string;
 }

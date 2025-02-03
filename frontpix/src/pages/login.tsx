@@ -16,7 +16,24 @@ function Login() {
     email: string;
     senha: string;
   }
-  const handlerLogin = () => {};
+  const handlerLogin = (values: FormValues) => {
+    Axios.post("http://localhost:3000/login", {
+      email: values.email,
+      senha: values.senha,
+    })
+      .then((response) => {
+        const token = response.data.token;
+        alert("Voce foi logado" + response.data.token);
+        localStorage.setItem("token", token);
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert("Erro: " + error.response.data.error);
+        } else {
+          alert("Erro ao tentar se conectar ao servidor");
+        }
+      });
+  };
 
   const verifiquerLogin = Yup.object().shape({
     email: Yup.string().email().required("Insira um email válido"),

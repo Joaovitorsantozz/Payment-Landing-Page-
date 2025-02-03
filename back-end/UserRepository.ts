@@ -7,18 +7,24 @@ export class UserRepository {
     const [rows] = await db
       .promise()
       .query<User[]>("SELECT * FROM pp_usuarios WHERE email = ?", [email]);
-    return rows.length > 0 ? rows[0] : null;
+    return rows[0] || null;
   }
 
   async create(user: Omit<User, "id">): Promise<NewUser> {
-    const { name, email, password } = user;
+    const { name, email, senha } = user;
+    console.log("Usuario", user);
+    try {
+      const [result] = await db
+        .promise()
+        .query<ResultSetHeader>(
+          "INSERT INTO pp_usuarios (email, name, senha) VALUES (?, ?, ?)",
+          [email, name, senha]
+        );
 
-    const [result] = await db
-      .promise()
-      .query<ResultSetHeader>(
-        "INSERT INTO pp_usuarios (email, name, senha) VALUES (?, ?, ?)",
-        [email, name, password]
-      );
-    return { id: result.insertId, name, email, password };
+      return { id: result.insertId, name, email, senha };
+    } catch (err) {
+      console.log("erro ao criar", err);
+      throw new Error("Erro ao criar usuário no banco de dados");
+    }
   }
 }
