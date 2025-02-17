@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +10,7 @@ import Axios from "axios";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   interface FormValues {
@@ -22,9 +23,13 @@ function Login() {
       senha: values.senha,
     })
       .then((response) => {
+        console.log("antes de salvar na API", response.data.token);
         const token = response.data.token;
         alert("Voce foi logado" + response.data.token);
+
         localStorage.setItem("token", token);
+
+        navigate("/meu-perfil");
       })
       .catch((error) => {
         if (error.response) {

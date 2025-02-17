@@ -857,6 +857,39 @@ div.cadastro-sec {
     height: 80%;
 }
 
+div.about-container {
+    width: 87%;
+    background-color: #e6e6e6;
+    border: 1px solid #c7c7c7;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+
+    & input {
+
+        padding: 20px;
+        width: 420px;
+        height: 40px;
+        background-color: #e6e6e6;
+        outline: none;
+        border: none;
+        border-radius: 50px;
+    }
+
+    & button {
+        background-color: #e6e6e6;
+        border: none;
+        height: 48px;
+        width: 12%;
+    }
+
+    & input:focus {
+        outline: none;
+    }
+
+
+}
+
 div.input-container {
     width: 87%;
     background-color: #e6e6e6;
